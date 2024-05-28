@@ -13,14 +13,15 @@ const project = new cdk.JsiiProject({
   repositoryUrl: 'https://github.com/t0bst4r/docker-compose-cdk.git',
 
   jsiiVersion: '~5.4.0',
-  deps: ['constructs@10.0.0'],
+  // deps: ['constructs@10.0.0'],
   peerDeps: ['constructs@^10.0.0'],
   peerDependencyOptions: {
-    pinnedDevDependency: false,
+    pinnedDevDependency: true,
   },
   packageName: packageName,
   npmProvenance: false,
 
   gitignore: ['.idea/'],
+  keywords: ['cdk', 'docker', 'docker-compose', 'docker compose', 'compose', 'cloud', 'cloud development kit'],
 });
 project.synth();
