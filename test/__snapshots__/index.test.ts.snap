@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Multiple Compose Projects 1`] = `
+{
+  "projects": [
+    {
+      "compose": {
+        "name": "first",
+        "networks": {
+          "nginx_network": {
+            "driver": "bridge",
+            "driver_opts": undefined,
+            "ipam": undefined,
+          },
+        },
+        "services": {
+          "nginx": {
+            "command": undefined,
+            "configs": undefined,
+            "deploy": {
+              "mode": "replicated",
+              "replicas": 1,
+            },
+            "devices": undefined,
+            "environment": undefined,
+            "image": "nginx:alpine",
+            "networks": {
+              "nginx_network": {
+                "ipv4_address": undefined,
+              },
+            },
+            "ports": [
+              "80:80",
+              "443:443",
+            ],
+            "privileged": false,
+            "profiles": undefined,
+            "restart": "unless-stopped",
+            "user": undefined,
+            "volumes": [
+              {
+                "read_only": undefined,
+                "source": "nginx_htmldata",
+                "target": "/usr/share/nginx/html",
+                "type": "volume",
+              },
+            ],
+          },
+        },
+        "volumes": {
+          "nginx_htmldata": {},
+        },
+      },
+      "composeHash": "fecfd64745042024",
+      "name": "first",
+    },
+    {
+      "compose": {
+        "name": "second",
+        "networks": {
+          "wordpress_network": {
+            "driver": "bridge",
+            "driver_opts": undefined,
+            "ipam": undefined,
+          },
+        },
+        "services": {
+          "wordpress": {
+            "command": undefined,
+            "configs": undefined,
+            "deploy": {
+              "mode": "replicated",
+              "replicas": 1,
+            },
+            "devices": undefined,
+            "environment": {
+              "WORDPRESS_DB_HOST": "second-wordpress-databaseservice-1",
+              "WORDPRESS_DB_NAME": "exampledb",
+              "WORDPRESS_DB_PASSWORD": "examplepass",
+              "WORDPRESS_DB_USER": "exampleuser",
+            },
+            "image": "wordpress:latest",
+            "networks": {
+              "wordpress_network": {
+                "ipv4_address": undefined,
+              },
+            },
+            "ports": undefined,
+            "privileged": false,
+            "profiles": undefined,
+            "restart": "unless-stopped",
+            "user": undefined,
+            "volumes": [
+              {
+                "read_only": undefined,
+                "source": "wordpress_wordpressdata",
+                "target": "/var/www/html",
+                "type": "volume",
+              },
+            ],
+          },
+          "wordpress_databaseservice": {
+            "command": undefined,
+            "configs": undefined,
+            "deploy": {
+              "mode": "replicated",
+              "replicas": 1,
+            },
+            "devices": undefined,
+            "environment": {
+              "MYSQL_DATABASE": "exampledb",
+              "MYSQL_PASSWORD": "examplepass",
+              "MYSQL_RANDOM_ROOT_PASSWORD": "1",
+              "MYSQL_USER": "exampleuser",
+            },
+            "image": "mysql:8.0",
+            "networks": {
+              "wordpress_network": {
+                "ipv4_address": undefined,
+              },
+            },
+            "ports": undefined,
+            "privileged": false,
+            "profiles": undefined,
+            "restart": "unless-stopped",
+            "user": undefined,
+            "volumes": [
+              {
+                "read_only": undefined,
+                "source": "wordpress_databasedata",
+                "target": "/var/lib/mysql",
+                "type": "volume",
+              },
+            ],
+          },
+        },
+        "volumes": {
+          "wordpress_databasedata": {},
+          "wordpress_wordpressdata": {},
+        },
+      },
+      "composeHash": "a9266a4abc31b34c",
+      "name": "second",
+    },
+  ],
+}
+`;
