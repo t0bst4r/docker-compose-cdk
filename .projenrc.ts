@@ -13,8 +13,11 @@ const project = new cdk.JsiiProject({
   repositoryUrl: 'https://github.com/t0bst4r/docker-compose-cdk.git',
 
   jsiiVersion: '~5.4.0',
-  devDeps: ['constructs@10.0.0'],
+  deps: ['constructs@10.0.0'],
   peerDeps: ['constructs@^10.0.0'],
+  peerDependencyOptions: {
+    pinnedDevDependency: false,
+  },
   packageName: packageName,
   npmProvenance: false,
 

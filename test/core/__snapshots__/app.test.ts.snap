@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Multiple Compose Projects 1`] = `
+exports[`App should be able to synthesize two simple stacks in memory 1`] = `
 {
   "projects": [
     {
@@ -144,4 +144,109 @@ exports[`Multiple Compose Projects 1`] = `
     },
   ],
 }
+`;
+
+exports[`App should be able to synthesize two simple stacks to the filesystem 1`] = `
+[
+  "{
+  "networks": {
+    "nginx_network": {
+      "driver": "bridge"
+    }
+  },
+  "volumes": {
+    "nginx_htmldata": {}
+  },
+  "services": {
+    "nginx": {
+      "image": "nginx:alpine",
+      "privileged": false,
+      "restart": "unless-stopped",
+      "deploy": {
+        "mode": "replicated",
+        "replicas": 1
+      },
+      "ports": [
+        "80:80",
+        "443:443"
+      ],
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "nginx_htmldata",
+          "target": "/usr/share/nginx/html"
+        }
+      ],
+      "networks": {
+        "nginx_network": {}
+      }
+    }
+  },
+  "name": "first"
+}",
+  "{
+  "networks": {
+    "wordpress_network": {
+      "driver": "bridge"
+    }
+  },
+  "volumes": {
+    "wordpress_databasedata": {},
+    "wordpress_wordpressdata": {}
+  },
+  "services": {
+    "wordpress_databaseservice": {
+      "image": "mysql:8.0",
+      "privileged": false,
+      "restart": "unless-stopped",
+      "deploy": {
+        "mode": "replicated",
+        "replicas": 1
+      },
+      "environment": {
+        "MYSQL_DATABASE": "exampledb",
+        "MYSQL_USER": "exampleuser",
+        "MYSQL_PASSWORD": "examplepass",
+        "MYSQL_RANDOM_ROOT_PASSWORD": "1"
+      },
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "wordpress_databasedata",
+          "target": "/var/lib/mysql"
+        }
+      ],
+      "networks": {
+        "wordpress_network": {}
+      }
+    },
+    "wordpress": {
+      "image": "wordpress:latest",
+      "privileged": false,
+      "restart": "unless-stopped",
+      "deploy": {
+        "mode": "replicated",
+        "replicas": 1
+      },
+      "environment": {
+        "WORDPRESS_DB_HOST": "second-wordpress-databaseservice-1",
+        "WORDPRESS_DB_NAME": "exampledb",
+        "WORDPRESS_DB_USER": "exampleuser",
+        "WORDPRESS_DB_PASSWORD": "examplepass"
+      },
+      "volumes": [
+        {
+          "type": "volume",
+          "source": "wordpress_wordpressdata",
+          "target": "/var/www/html"
+        }
+      ],
+      "networks": {
+        "wordpress_network": {}
+      }
+    }
+  },
+  "name": "second"
+}",
+]
 `;

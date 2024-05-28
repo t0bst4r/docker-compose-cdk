@@ -30,6 +30,7 @@ new App(props?: AppProps)
 | --- | --- |
 | <code><a href="#docker-compose-cdk.App.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#docker-compose-cdk.App.synth">synth</a></code> | *No description.* |
+| <code><a href="#docker-compose-cdk.App.synthToDir">synthToDir</a></code> | *No description.* |
 
 ---
 
@@ -46,6 +47,18 @@ Returns a string representation of this construct.
 ```typescript
 public synth(): SynthMetadata
 ```
+
+##### `synthToDir` <a name="synthToDir" id="docker-compose-cdk.App.synthToDir"></a>
+
+```typescript
+public synthToDir(outdir: string): SynthToDirMetadata
+```
+
+###### `outdir`<sup>Required</sup> <a name="outdir" id="docker-compose-cdk.App.synthToDir.parameter.outdir"></a>
+
+- *Type:* string
+
+---
 
 #### Static Functions <a name="Static Functions" id="Static Functions"></a>
 
@@ -2479,17 +2492,17 @@ const synthMetadata: SynthMetadata = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#docker-compose-cdk.SynthMetadata.property.projects">projects</a></code> | <code><a href="#docker-compose-cdk.SynthProjectReference">SynthProjectReference</a>[]</code> | *No description.* |
+| <code><a href="#docker-compose-cdk.SynthMetadata.property.projects">projects</a></code> | <code><a href="#docker-compose-cdk.SynthProjectResult">SynthProjectResult</a>[]</code> | *No description.* |
 
 ---
 
 ##### `projects`<sup>Required</sup> <a name="projects" id="docker-compose-cdk.SynthMetadata.property.projects"></a>
 
 ```typescript
-public readonly projects: SynthProjectReference[];
+public readonly projects: SynthProjectResult[];
 ```
 
-- *Type:* <a href="#docker-compose-cdk.SynthProjectReference">SynthProjectReference</a>[]
+- *Type:* <a href="#docker-compose-cdk.SynthProjectResult">SynthProjectResult</a>[]
 
 ---
 
@@ -2507,19 +2520,8 @@ const synthProjectReference: SynthProjectReference = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#docker-compose-cdk.SynthProjectReference.property.compose">compose</a></code> | <code>object</code> | *No description.* |
 | <code><a href="#docker-compose-cdk.SynthProjectReference.property.composeHash">composeHash</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#docker-compose-cdk.SynthProjectReference.property.name">name</a></code> | <code>string</code> | *No description.* |
-
----
-
-##### `compose`<sup>Required</sup> <a name="compose" id="docker-compose-cdk.SynthProjectReference.property.compose"></a>
-
-```typescript
-public readonly compose: object;
-```
-
-- *Type:* object
 
 ---
 
@@ -2540,6 +2542,84 @@ public readonly name: string;
 ```
 
 - *Type:* string
+
+---
+
+### SynthProjectResult <a name="SynthProjectResult" id="docker-compose-cdk.SynthProjectResult"></a>
+
+#### Initializer <a name="Initializer" id="docker-compose-cdk.SynthProjectResult.Initializer"></a>
+
+```typescript
+import { SynthProjectResult } from 'docker-compose-cdk'
+
+const synthProjectResult: SynthProjectResult = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#docker-compose-cdk.SynthProjectResult.property.composeHash">composeHash</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#docker-compose-cdk.SynthProjectResult.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#docker-compose-cdk.SynthProjectResult.property.compose">compose</a></code> | <code>object</code> | *No description.* |
+
+---
+
+##### `composeHash`<sup>Required</sup> <a name="composeHash" id="docker-compose-cdk.SynthProjectResult.property.composeHash"></a>
+
+```typescript
+public readonly composeHash: string;
+```
+
+- *Type:* string
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="docker-compose-cdk.SynthProjectResult.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `compose`<sup>Required</sup> <a name="compose" id="docker-compose-cdk.SynthProjectResult.property.compose"></a>
+
+```typescript
+public readonly compose: object;
+```
+
+- *Type:* object
+
+---
+
+### SynthToDirMetadata <a name="SynthToDirMetadata" id="docker-compose-cdk.SynthToDirMetadata"></a>
+
+#### Initializer <a name="Initializer" id="docker-compose-cdk.SynthToDirMetadata.Initializer"></a>
+
+```typescript
+import { SynthToDirMetadata } from 'docker-compose-cdk'
+
+const synthToDirMetadata: SynthToDirMetadata = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#docker-compose-cdk.SynthToDirMetadata.property.projects">projects</a></code> | <code><a href="#docker-compose-cdk.SynthProjectReference">SynthProjectReference</a>[]</code> | *No description.* |
+
+---
+
+##### `projects`<sup>Required</sup> <a name="projects" id="docker-compose-cdk.SynthToDirMetadata.property.projects"></a>
+
+```typescript
+public readonly projects: SynthProjectReference[];
+```
+
+- *Type:* <a href="#docker-compose-cdk.SynthProjectReference">SynthProjectReference</a>[]
 
 ---
 

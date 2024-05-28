@@ -1,8 +1,10 @@
 import { createHash } from 'crypto';
+import * as fs from 'fs';
+import * as path from 'path';
 import { IConstruct } from 'constructs';
 import { Project } from './project';
 import { Stage } from './stage';
-import { SynthMetadata, SynthProjectReference } from './synth-metadata';
+import { SynthMetadata, SynthProjectResult, SynthToDirMetadata } from './synth-metadata';
 import { DefaultNamingStrategy, INamingStrategy, NamingStrategyContextKey } from '../naming';
 
 export interface AppProps {
@@ -23,7 +25,7 @@ export class App extends Stage {
     const projects = this.node
       .findAll()
       .filter(isProject)
-      .map<SynthProjectReference>(project => {
+      .map<SynthProjectResult>(project => {
       const compose = project.render();
       const composeHash = createHash('sha256')
         .update(JSON.stringify(compose))
@@ -33,6 +35,21 @@ export class App extends Stage {
       return { name: project.name, compose, composeHash };
     });
     return { projects };
+  }
+
+  synthToDir(outdir: string): SynthToDirMetadata {
+    const synthResult = this.synth();
+    synthResult.projects.forEach(project => {
+      const projectDir = path.join(outdir, `${project.name}.${project.composeHash}`);
+      fs.mkdirSync(projectDir, { recursive: true });
+      fs.writeFileSync(path.join(projectDir, 'docker-compose.json'), JSON.stringify(project.compose, undefined, 2), { encoding: 'utf-8' });
+    });
+    return {
+      projects: synthResult.projects.map(project => ({
+        name: project.name,
+        composeHash: project.composeHash,
+      })),
+    };
   }
 }
 
