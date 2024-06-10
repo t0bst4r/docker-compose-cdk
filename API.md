@@ -68,7 +68,7 @@ public synthToDir(outdir: string): SynthToDirMetadata
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="docker-compose-cdk.App.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="docker-compose-cdk.App.isConstruct"></a>
 
 ```typescript
 import { App } from 'docker-compose-cdk'
@@ -77,6 +77,20 @@ App.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="docker-compose-cdk.App.isConstruct.parameter.x"></a>
 
@@ -175,7 +189,7 @@ public render(): object
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="docker-compose-cdk.Config.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="docker-compose-cdk.Config.isConstruct"></a>
 
 ```typescript
 import { Config } from 'docker-compose-cdk'
@@ -184,6 +198,20 @@ Config.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="docker-compose-cdk.Config.isConstruct.parameter.x"></a>
 
@@ -342,7 +370,7 @@ public render(): object
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="docker-compose-cdk.ConfigBase.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="docker-compose-cdk.ConfigBase.isConstruct"></a>
 
 ```typescript
 import { ConfigBase } from 'docker-compose-cdk'
@@ -351,6 +379,20 @@ ConfigBase.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="docker-compose-cdk.ConfigBase.isConstruct.parameter.x"></a>
 
@@ -482,7 +524,7 @@ public render(): object
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="docker-compose-cdk.Network.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="docker-compose-cdk.Network.isConstruct"></a>
 
 ```typescript
 import { Network } from 'docker-compose-cdk'
@@ -491,6 +533,20 @@ Network.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="docker-compose-cdk.Network.isConstruct.parameter.x"></a>
 
@@ -649,7 +705,7 @@ public render(): object
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="docker-compose-cdk.NetworkBase.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="docker-compose-cdk.NetworkBase.isConstruct"></a>
 
 ```typescript
 import { NetworkBase } from 'docker-compose-cdk'
@@ -658,6 +714,20 @@ NetworkBase.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="docker-compose-cdk.NetworkBase.isConstruct.parameter.x"></a>
 
@@ -784,7 +854,7 @@ public render(): object
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="docker-compose-cdk.Project.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="docker-compose-cdk.Project.isConstruct"></a>
 
 ```typescript
 import { Project } from 'docker-compose-cdk'
@@ -793,6 +863,20 @@ Project.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="docker-compose-cdk.Project.isConstruct.parameter.x"></a>
 
@@ -917,7 +1001,7 @@ public render(): object
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="docker-compose-cdk.Resource.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="docker-compose-cdk.Resource.isConstruct"></a>
 
 ```typescript
 import { Resource } from 'docker-compose-cdk'
@@ -926,6 +1010,20 @@ Resource.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="docker-compose-cdk.Resource.isConstruct.parameter.x"></a>
 
@@ -1056,7 +1154,7 @@ public render(): object
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="docker-compose-cdk.Service.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="docker-compose-cdk.Service.isConstruct"></a>
 
 ```typescript
 import { Service } from 'docker-compose-cdk'
@@ -1065,6 +1163,20 @@ Service.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="docker-compose-cdk.Service.isConstruct.parameter.x"></a>
 
@@ -1351,7 +1463,7 @@ public render(): object
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="docker-compose-cdk.ServiceBase.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="docker-compose-cdk.ServiceBase.isConstruct"></a>
 
 ```typescript
 import { ServiceBase } from 'docker-compose-cdk'
@@ -1360,6 +1472,20 @@ ServiceBase.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="docker-compose-cdk.ServiceBase.isConstruct.parameter.x"></a>
 
@@ -1487,7 +1613,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="docker-compose-cdk.Stage.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="docker-compose-cdk.Stage.isConstruct"></a>
 
 ```typescript
 import { Stage } from 'docker-compose-cdk'
@@ -1496,6 +1622,20 @@ Stage.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="docker-compose-cdk.Stage.isConstruct.parameter.x"></a>
 
@@ -1587,7 +1727,7 @@ public render(): object
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="docker-compose-cdk.Volume.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="docker-compose-cdk.Volume.isConstruct"></a>
 
 ```typescript
 import { Volume } from 'docker-compose-cdk'
@@ -1596,6 +1736,20 @@ Volume.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="docker-compose-cdk.Volume.isConstruct.parameter.x"></a>
 
@@ -1754,7 +1908,7 @@ public render(): object
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="docker-compose-cdk.VolumeBase.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="docker-compose-cdk.VolumeBase.isConstruct"></a>
 
 ```typescript
 import { VolumeBase } from 'docker-compose-cdk'
@@ -1763,6 +1917,20 @@ VolumeBase.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="docker-compose-cdk.VolumeBase.isConstruct.parameter.x"></a>
 
